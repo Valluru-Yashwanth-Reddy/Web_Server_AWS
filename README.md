@@ -1,4 +1,4 @@
-![Screenshot 2025-06-11 122425](https://github.com/user-attachments/assets/3d6987dd-c1bd-4904-a6fe-0b13c77cb26c)# Web_Server_AWS
+
 ## In office Hands on
 
 ![Screenshot 2025-06-11 121439](https://github.com/user-attachments/assets/838f110a-3c77-40cb-908a-6b4d9df206ee)
