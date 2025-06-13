@@ -50,7 +50,39 @@ systemctl enable httpd
 echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
 and by clicking the launch intance the instance will be launched after launching the instance we get an public IP with that public IP we can open our site .
 ![Screenshot 2025-06-11 133238](https://github.com/user-attachments/assets/104de878-1d5b-41e4-bb41-e3c26f109e3a)
+By opening that public Ip address we can see the site informantion Given in the script output we get as 
+![Screenshot 2025-06-11 133238](https://github.com/user-attachments/assets/7beaff4a-bfa6-4710-8df8-11c98ef717b2)
 
+
+## Take Home Assignment  (Building a Two-Tier Web Application Infrastructure)
+
+-->first creating a vpc with a name day-one-yashwanth-vpc with a CIDR block of 10.10.0.0/16.
+![image](https://github.com/user-attachments/assets/033fd59a-740d-4c52-b7b4-86e02bc8a754)
+-->Now we create a public subnet with name day-one-yashwanth-public-subnet fro this with CIDR 10.10.1.0/24
+-->we create another subnet which we put it as private with name day-one-yashwanth-private-subnet for this with CIDR 10.10.2.0/24
+![image](https://github.com/user-attachments/assets/77da1a0f-2c7b-4260-8b67-94280231949e)
+-->Next we create an internet gateway with name day-one-yashwanth-internet-gateway we will atach with the created vpc day-one-yashwanth-vpc
+![image](https://github.com/user-attachments/assets/478c29b3-16d0-4e05-97d3-aaf99eb3755e)
+--> Next we configure the main route table day-one-yashwanth-route-table for the vpc day-one-yashwanth-vpc to route the inbound traffic (0.0.0.0/0) which it allows all traffic from the internet to the internet gateway.Now we associate this route table with our public subnet day-one-yashwanth-public-subnet.
+Now the othe subnet which is day-one-yashwanth-private-subnet we wont allow this to the internet access so we will associate with the default vpc which has no internet gateway attached so it will be in private only .
+
+--> Next we create the security group day-one-yashwanth-webapp-sg it will allow inbound HTTP (port 80) traffic from Anywhere (0.0.0.0/0).
+and another security group day-one-yashwanth-database-sg in this we will give only the inbound rule is  It should allow inbound traffic on the "MySQL/Aurora" port (3306) only from the webapp-sg Security Group for this we wont give any ssh inbound traffic rule .
+![image](https://github.com/user-attachments/assets/573e6377-0248-403b-81f6-88197ea7084d)
+
+--> Next we create a ec2 instance day-one-yashwanth-Web-Server for this instance we select t2.micro in network settings for this instace we attach the vpc created day-one-yashwanth-vpc and will connect it for th epublic subneyt created which has the internet access day-one-yashwanth-public-subnet.and we make auto assign public enable in the advanced settings we give the script to install a simple web server .
+--> We create another ec2 instance day-one-yashwanth-Database-sg  for this instance we select t2.micro in network settings for this instace we attach the vpc created day-one-yashwanth-vpc and will connect it for the private subnet created which has no internet access and we disable the auto assign public ip .
+![image](https://github.com/user-attachments/assets/9a29fbe0-b787-455a-b572-8f950ed778ea)
+--> Now if we open the public ip of the instance day-one-yashwanth-Web-Server we can see the simple web server online with open that public ip.
+![Screenshot (1)](https://github.com/user-attachments/assets/b8fd43b9-4d5a-447a-927c-215aca2987d4)
+
+
+
+
+
+
+
+ 
 
 
 
