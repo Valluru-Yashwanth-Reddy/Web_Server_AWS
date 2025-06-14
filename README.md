@@ -75,6 +75,8 @@ and another security group day-one-yashwanth-database-sg in this we will give on
 ![image](https://github.com/user-attachments/assets/9a29fbe0-b787-455a-b572-8f950ed778ea)
 --> Now if we open the public ip of the instance day-one-yashwanth-Web-Server we can see the simple web server online with open that public ip.
 ![Screenshot (1)](https://github.com/user-attachments/assets/b8fd43b9-4d5a-447a-927c-215aca2987d4)
+ Then if we SSH into our public `Web-Server`.
+ From the `Web-Server` if we try to "ping" the private IP address of our `DB-Server`. This proves our web tier can communicate with our database tier
 
 
 
